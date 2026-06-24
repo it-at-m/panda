@@ -4,16 +4,28 @@ import { defineStore } from "pinia";
 import { computed, readonly, ref } from "vue";
 
 import { getUserInfo } from "@/api/userinfo-client";
-import { STATUS_INDICATORS } from "@/constants";
-import { useSnackbarStore } from "@/stores/snackbar";
 import { Role } from "@/types/Role";
 
 function isRole(value: string): value is Role {
   return Object.values(Role).includes(value as Role);
 }
 
+const DEMO_USER: UserInfo = {
+  sub: "demo-anna-bauer",
+  preferred_username: "anna.bauer",
+  name: "Dr. Anna Bauer",
+  given_name: "Anna",
+  family_name: "Bauer",
+  email: "anna.bauer@muenchen.de",
+  phone_number: "+49 89 233-45010",
+  department: "RIT",
+  lhmObjectID: "1004523",
+  resource_access: {
+    "panda-admin": { roles: ["reader", "writer"] },
+  },
+};
+
 export const useUserInfoStore = defineStore("userInfo", () => {
-  const snackbarStore = useSnackbarStore();
   const internalUserInfo = ref<UserInfo | null>(null);
   const userInfo = readonly(internalUserInfo);
 
@@ -21,10 +33,9 @@ export const useUserInfoStore = defineStore("userInfo", () => {
     try {
       internalUserInfo.value = await getUserInfo();
     } catch {
-      snackbarStore.push({
-        color: STATUS_INDICATORS.ERROR,
-        text: "Nutzer konnte nicht geladen werden.",
-      });
+      // Demo fallback: no backend available, use a fictional administrator so
+      // the pitch demo works fully offline.
+      internalUserInfo.value = DEMO_USER;
     }
   }
 

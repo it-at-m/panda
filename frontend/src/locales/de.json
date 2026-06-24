@@ -1,9 +1,8 @@
 {
   "app": {
     "name": {
-      "part1": "refarch-",
-      "part2": "frontend",
-      "full": "@:app.name.part1@:app.name.part2"
+      "part1": "panda",
+      "part2": "admin"
     }
   },
   "common": {
@@ -13,31 +12,23 @@
       "close": "Schließen",
       "search": "Suchen"
     },
-    "messages": {}
-  },
-  "views": {
-    "index": {
-      "navText": "Willkommen",
-      "header": "Willkommen beim @:app.name.full von it{'@'}M",
-      "isWriterText": "writer-Rolle vorhanden",
-      "isNotWriterText": "writer-Rolle fehlt",
-      "apiGatewayStatus": "Das API-Gateway ist:",
-      "backendStatus": "Das Backend ist:"
-    },
-    "getStarted": {
-      "navText": "Get Started",
-      "header": "Get Started",
-      "docsText": "Dokumentation für die RefArch ist hier zu finden:",
-      "docsLinks": {
-        "templates": "Dokumentation RefArch-Templates",
-        "main": "Dokumentation RefArch"
-      },
-      "saveLeave": {
-        "title": "Wirklich verlassen?",
-        "text": "Wollen Sie wirklich nicht die Dokumentation anschauen?"
-      }
+    "theme": {
+      "toggle": "Hell-/Dunkelmodus umschalten"
     }
   },
-  "components": {},
-  "domain": {}
+  "nav": {
+    "sections": {
+      "operations": "Betrieb",
+      "administration": "Administration"
+    },
+    "openMenu": "Navigation öffnen",
+    "dashboard": "Übersicht",
+    "token": "Sicherheits-Token",
+    "fes": "Elektronische Signatur",
+    "pinletters": "PIN-Briefe",
+    "cron": "Cronjobs",
+    "logs": "Protokolle",
+    "sso": "Single Sign-On",
+    "pki": "Code Signing"
+  }
 }
