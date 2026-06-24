@@ -1,7 +1,7 @@
-import type { HTTPHeaders } from "@/api/generated/openapi";
+import type { HTTPHeaders } from "@/api/generated/backend";
 
 import { getHeaders } from "@/api/fetch-utils.ts";
-import { BaseAPI, Configuration } from "@/api/generated/openapi";
+import { BaseAPI, Configuration } from "@/api/generated/backend";
 import { BASE_API_PATH } from "@/constants.ts";
 
 type ApiCtor<T extends BaseAPI> = new (config: Configuration) => T;

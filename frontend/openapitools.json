@@ -6,7 +6,7 @@
     "generators": {
       "backend": {
         "generatorName": "typescript-fetch",
-        "glob": "./src/api/openapi.json",
+        "glob": "./src/api/backend.yaml",
         "output": "#{cwd}/src/api/generated/#{name}",
         "additionalProperties": {
           "supportsES6": true,
