@@ -20,9 +20,6 @@ body:
       description: Affected documentation parts
       options:
         - frontend
-        - backend
-        - eai
-        - webcomponent
         - Other
     validations:
       required: true

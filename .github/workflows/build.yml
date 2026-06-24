@@ -1,4 +1,4 @@
-# Workflow for building NPM/Maven projects and Docker images
+# Workflow for building NPM projects and Docker images
 name: build
 
 on:
@@ -19,10 +19,7 @@ jobs:
       fail-fast: false
       matrix:
         include: # Add or modify paths according to your project structure
-          - app-path: backend
           - app-path: frontend
-          - app-path: eai
-          - app-path: webcomponent
 
     steps:
       - uses: it-at-m/lhm_actions/action-templates/actions/action-checkout@877aafa9f0732cbc91819b60d237c351ea88f95c # v1.0.34
@@ -32,13 +29,7 @@ jobs:
         with:
           app-path: ${{ matrix.app-path }}
           node-version: "24"
-      - id: maven # required for steps.* syntax
-        if: ${{ hashFiles(format('./{0}/pom.xml', matrix.app-path)) != '' }}
-        uses: it-at-m/lhm_actions/action-templates/actions/action-maven-build@877aafa9f0732cbc91819b60d237c351ea88f95c # v1.0.34
-        with:
-          app-path: ${{ matrix.app-path }}
-          java-version: "21"
-      - if: ${{ github.ref == 'refs/heads/main' && (steps.node.outcome == 'success' || steps.maven.outcome == 'success') }}
+      - if: ${{ github.ref == 'refs/heads/main' && steps.node.outcome == 'success' }}
         uses: it-at-m/lhm_actions/action-templates/actions/action-build-image@877aafa9f0732cbc91819b60d237c351ea88f95c # v1.0.34
         with:
           path: ${{ matrix.app-path }}
