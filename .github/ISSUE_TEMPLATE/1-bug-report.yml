@@ -57,9 +57,6 @@ body:
       description: Name(s) of the affected template(s) (if applicable)
       options:
         - frontend
-        - backend
-        - eai
-        - webcomponent
     validations:
       required: false
   - type: input

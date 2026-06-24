@@ -32,19 +32,12 @@ Issue: #XXX
 - [ ] Added unit tests
 - [ ] Removed waste on branch (e.g. `console.log`), see [code quality tooling][code-quality-link]
 
-#### Frontend / WebComponent
+#### Frontend
 
 - [ ] Added component tests (if component was changed)
 - [ ] Considered and tested accessibility (if UI change was made)
 - [ ] Checked / Updated Node.js engine requirements in `package.json` (if dependencies were changed)
 - [ ] Tested changes using API gateway
-
-#### Backend / EAI
-
-- [ ] Added integration tests
-- [ ] Updated database migration scripts (if changes to model were made)
-- [ ] Added Swagger API annotations (if changes to API was made)
-- [ ] Checked Spring Boot version matching Camel version in `pom.xml` (if Camel version was bumped)
 
 ### Development Stack
 

@@ -19,8 +19,7 @@ on:
         default: frontend
         options: # Add or modify paths according to your project structure
           - frontend
-          - webcomponent
-          
+
 jobs:
   release-npm-artifact:
     runs-on: ubuntu-latest
