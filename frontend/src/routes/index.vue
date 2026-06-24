@@ -33,11 +33,13 @@
 </template>
 
 <script setup lang="ts">
+import type { HealthState } from "@/types/HealthState.ts";
+
 import { onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 import { ApiFactory } from "@/api/ApiFactory.ts";
-import { ProbeApi } from "@/api/generated/openapi";
+import { ActuatorApi } from "@/api/generated/backend";
 import { checkHealth } from "@/api/healthstate-client";
 import useHasAnyRole from "@/composables/useHasAnyRole";
 import { STATUS_INDICATORS } from "@/constants";
@@ -65,8 +67,8 @@ onMounted(async () => {
   }
 
   try {
-    await ApiFactory.getInstance(ProbeApi).readinessProbeReadinessGet();
-    backendStatus.value = "UP";
+    const content = await ApiFactory.getInstance(ActuatorApi).health();
+    backendStatus.value = (content as HealthState).status;
   } catch (error) {
     const err = error as Error;
     snackbarStore.push({
