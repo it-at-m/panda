@@ -1,3 +1,7 @@
+# ========= Python ======================
+__pycache__/
+*.py[cod]
+
 # ========= Frontend specific ==========
 route-map.d.ts
 

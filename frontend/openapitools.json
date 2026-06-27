@@ -15,6 +15,18 @@
           "useSingleRequestParameter": false,
           "validationAttributes": true
         }
+      },
+      "demo": {
+        "generatorName": "typescript-fetch",
+        "glob": "./src/api/demo-openapi.json",
+        "output": "#{cwd}/src/api/generated/#{name}",
+        "additionalProperties": {
+          "supportsES6": true,
+          "enumPropertyNaming": "UPPERCASE",
+          "disallowAdditionalPropertiesIfNotPresent": false,
+          "useSingleRequestParameter": false,
+          "validationAttributes": true
+        }
       }
     }
   }

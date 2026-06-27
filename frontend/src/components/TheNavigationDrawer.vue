@@ -41,6 +41,18 @@
         exact
         rounded="lg"
       />
+      <v-list-item
+        :prepend-icon="mdiHandWaveOutline"
+        :title="t('nav.hallowelt')"
+        to="/hallowelt"
+        rounded="lg"
+      />
+      <v-list-item
+        :prepend-icon="mdiTableLarge"
+        :title="t('nav.dummytabelle')"
+        to="/dummytabelle"
+        rounded="lg"
+      />
 
       <v-list-subheader>{{ t("nav.sections.operations") }}</v-list-subheader>
       <v-list-item
@@ -130,9 +142,11 @@ import {
   mdiEmailFastOutline,
   mdiFileCertificateOutline,
   mdiFileSign,
+  mdiHandWaveOutline,
   mdiKeyChainVariant,
   mdiPawOutline,
   mdiShieldCheckOutline,
+  mdiTableLarge,
   mdiTextBoxSearchOutline,
   mdiUsbFlashDrive,
   mdiViewDashboardOutline,

@@ -1,0 +1,23 @@
+name: panda-backend
+
+services:
+  backend:
+    build: .
+    # The frontend dev server proxies /api and /actuator to localhost:8083,
+    # so we expose the container on host port 8083.
+    ports:
+      - "8083:8000"
+    # Live reload during development: code changes in ./app are picked up
+    # without rebuilding the image.
+    volumes:
+      - ./app:/app/app
+    command:
+      [
+        "uvicorn",
+        "app.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--reload",
+      ]
